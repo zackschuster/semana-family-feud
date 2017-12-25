@@ -1,4 +1,5 @@
 const seconds = s => s * 1000;
+const soundEffect = name => new Audio(`assets/${name}.mp3`).play();
 
 function showDivById(id, animateClass = 'jackInTheBox', swingDelay = 1) {
 	const div = document.getElementById(id);
@@ -12,6 +13,7 @@ function showDivById(id, animateClass = 'jackInTheBox', swingDelay = 1) {
 new Vue({
 	el: '#landing',
 	created() {
+		soundEffect('cheer');
 		this.showHeaderText();
 	},
 	methods: {
@@ -74,15 +76,15 @@ function registerGameComponent() {
 				answers.classList.toggle(`show-answer-${index}`);
 
 				if (answers.classList.contains(`show-answer-${index}`)) {
-					new Audio('assets/ding.mp3').play();
+					soundEffect('ding');
 				} else {
-					new Audio('assets/crank.mp3').play();
+					soundEffect('crank');
 				}
 
 				if (allowConfetti && [0,1,2,3,4].slice(0, this.current.answers.length).every(x => answers.classList.contains(`show-answer-${x}`))) {
 					const confettiCanvas = document.getElementById('confetti');
 					confettiCanvas.hidden = false;
-					new Audio('assets/cheer.mp3').play();
+					soundEffect('cheer');
 					setTimeout(() => {
 						confettiCanvas.hidden = true;
 						this.nextQuestion();
@@ -103,7 +105,7 @@ function registerGameComponent() {
 			},
 			buzz() {
 				this.showWrongNotification = true;
-				new Audio('assets/buzz.mp3').play();
+				soundEffect('buzz');
 				setTimeout(() => {
 					this.showWrongNotification = false;
 				}, seconds(1));
@@ -115,7 +117,7 @@ function registerGameComponent() {
 						this.toggleAnswer(i, false);
 					}
 				}
-				new Audio('assets/crank.mp3').play();
+				soundEffect('crank');
 			},
 			stop() {
 				document.getElementById('theme').remove();
