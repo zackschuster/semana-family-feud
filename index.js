@@ -64,6 +64,7 @@ function registerGameComponent() {
 				}
 			},
 			stop() {
+				document.getElementById(`theme`).remove();
 				document.getElementById(`game`).remove();
 				this.$destroy();
 			},
