@@ -49,6 +49,10 @@ function registerGameComponent() {
 				const answers = document.getElementById(`answers`);
 				answers.classList.toggle(`show-answer-${index}`);
 
+				if (answers.classList.contains(`show-answer-${index}`)) {
+					new Audio('assets/ding.mp3').play();
+				}
+
 				if (allowConfetti && [1,2,3,4,5].slice(0, this.current.answers.length - 1).every(x => answers.classList.contains(`show-answer-${x}`))) {
 					const confettiCanvas = document.getElementById('confetti');
 					confettiCanvas.hidden = false;
@@ -78,6 +82,7 @@ function registerGameComponent() {
 						this.toggleAnswer(i, false);
 					}
 				}
+				new Audio('assets/crank.mp3').play();
 			},
 			stop() {
 				document.getElementById(`theme`).remove();
