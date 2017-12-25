@@ -67,7 +67,7 @@ function registerGameComponent() {
 					new Audio('assets/crank.mp3').play();
 				}
 
-				if (allowConfetti && [1,2,3,4,5].slice(0, this.current.answers.length - 1).every(x => answers.classList.contains(`show-answer-${x}`))) {
+				if (allowConfetti && [0,1,2,3,4].slice(0, this.current.answers.length).every(x => answers.classList.contains(`show-answer-${x}`))) {
 					const confettiCanvas = document.getElementById('confetti');
 					confettiCanvas.hidden = false;
 					new Audio('assets/cheer.mp3').play();
