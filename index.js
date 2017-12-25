@@ -142,7 +142,7 @@ function registerGameComponent() {
 						console.log(`*clears throat* picked question #${slice + 1}`);
 					}
 
-					while (slice === this.current.slice) {
+					while (slice === (this.current.number - 1)) {
 						console.log(`oops, picked the last question`);
 						slice = calcSlice();
 						console.log(`*clears throat* picked question #${slice + 1}`);
