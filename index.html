@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<meta http-equiv="X-UA-Compatible" content="ie=edge">
+				<title>Semana Family Feud</title>
+				<link rel="stylesheet" href="assets/game.css">
+    </head>
+    <body>
+			<div id="landing" @click="showRoot"></div>
+
+			<div id="root" hidden>
+				<div id="header" class="animated">
+					<h1>
+						<div id="first" hidden>
+							Semana
+						</div>
+						<div id="second" hidden>
+							Family
+						</div>
+						<div id="third" hidden>
+							Feud
+						</div>
+					</h1>
+				</div>
+
+				<game></game>
+			</div>
+
+			<script type="text/x-template" id="game-template">
+				<section id="game">
+					<h2>{{current.question}}</h2>
+					<div class="answers" id="answers">
+						<div class="answer-box" v-bind:id="'answer-box-' + index" v-for="(answer, index) in current.answers" @click="toggleAnswer(index)">
+							<div class="preview">
+								{{index + 1}}
+							</div>
+							<div class="answer no-height" hidden>
+								{{answer}}
+							</div>
+						</div>
+					</div>
+
+					<button type="submit" class="game-btn" @click="reset">
+						<h3 style="color:red;">
+							Reset
+						</h3>
+					</button>
+					|
+					<button type="submit" class="game-btn" @click="stop">
+						<h3 style="color:blue;">
+							Hide
+						</h3>
+					</button>
+					|
+					<button type="submit" class="game-btn" id="next-btn" @click="nextQuestion">
+						<h3 style="color:green;">
+							Next &raquo;
+						</h3>
+					</button>
+				</section>
+			</script>
+
+			<script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+			<script src="index.js"></script>
+    </body>
+</html>
