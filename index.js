@@ -59,7 +59,7 @@ function registerGameComponent() {
 					new Audio('assets/cheer.mp3').play();
 					setTimeout(() => {
 						confettiCanvas.hidden = true;
-						this.nextQuestion()
+						this.nextQuestion();
 					}, seconds(5));
 				}
 
@@ -90,6 +90,8 @@ function registerGameComponent() {
 				this.$destroy();
 			},
 			nextQuestion() {
+				if (document.getElementById('confetti').hidden === false) return;
+
 				this.reset();
 
 				setTimeout(() => {
