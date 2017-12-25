@@ -5,7 +5,7 @@ function showDivById(id, animateClass = 'jackInTheBox', swingDelay = 1) {
 	div.hidden = false;
 	div.classList.add('animated', animateClass);
 
-  setTimeout(() => 
+  setTimeout(() =>
     div.classList.add('infinite-swing'), seconds(swingDelay));
 }
 
@@ -42,6 +42,19 @@ function registerGameComponent() {
 			confetti.start();
 
 			return { current, confetti, showWrongNotification: false };
+		},
+		mounted() {
+			window.addEventListener('keydown', e => {
+				switch (e.code) {
+					case 'Digit1': return this.toggleAnswer(0);
+					case 'Digit2': return this.toggleAnswer(1);
+					case 'Digit3': return this.toggleAnswer(2);
+					case 'Digit4': return this.toggleAnswer(3);
+					case 'Digit5': return this.toggleAnswer(4);
+					case 'Enter': return this.nextQuestion();
+					case 'KeyX': return this.buzz();
+				}
+			});
 		},
 		methods: {
 			toggleAnswer(index, allowConfetti = true) {
