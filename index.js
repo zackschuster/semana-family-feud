@@ -70,9 +70,9 @@ function registerGameComponent() {
 					answer.hidden = !answer.hidden;
 					answer.classList.toggle('no-height');
 
-					answerBox
-						.querySelector('.preview')
-						.classList.toggle('no-height');
+					const preview = answerBox.querySelector('.preview')
+					preview.hidden = !preview.hidden;
+					preview.classList.toggle('no-height');
 				}, 100);
 			},
 			reset() {
