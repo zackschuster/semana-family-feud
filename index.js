@@ -52,6 +52,7 @@ function registerGameComponent() {
 				if (allowConfetti && [1,2,3,4,5].slice(0, this.current.answers.length - 1).every(x => answers.classList.contains(`show-answer-${x}`))) {
 					const confettiCanvas = document.getElementById('confetti');
 					confettiCanvas.hidden = false;
+					new Audio('assets/cheer.mp3').play();
 					setTimeout(() => {
 						confettiCanvas.hidden = true;
 						this.nextQuestion()
