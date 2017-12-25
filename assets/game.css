@@ -24,21 +24,24 @@ h1, h2, h3 {
 
 h1 {
 	color: yellow;
-	font-size: 10rem;
+	font-size: 13rem;
 	margin-bottom: 0;
 }
 
 h2 {
 	color: white;
-	font-size: 3rem;
+	font-size: 3.5rem;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 2rem;
 }
 
 #confetti {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
 }
 
 #landing {
@@ -54,7 +57,7 @@ h2 {
 #root {
 	position: relative;
 	display: grid;
-  grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 }
 
 #header {
@@ -65,7 +68,7 @@ h2 {
 
 #game {
 	padding: 1em;
-  grid-column: 2 / 3;
+	grid-column: 2 / 3;
 }
 
 .game-btn {
@@ -75,6 +78,10 @@ h2 {
 	border-radius: 0.1em;
 	margin-top: 1em;
 	font-size: 2rem;
+}
+
+.game-btn h3 {
+	margin: 0;
 }
 
 @keyframes swing {
@@ -111,8 +118,8 @@ h2 {
 
 .answers {
 	display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  perspective: 1000;
+	grid-template-columns: repeat(5, 1fr);
+	perspective: 1000;
 }
 
 .answers.show-answer-0 #answer-box-0,
@@ -124,28 +131,28 @@ h2 {
 }
 
 #answer-box-0 {
-  grid-column: 3;
-  grid-row: 1;
+	grid-column: 3;
+	grid-row: 1;
 }
 
 #answer-box-1 {
-  grid-column: 3;
-  grid-row: 2;
+	grid-column: 3;
+	grid-row: 2;
 }
 
 #answer-box-2 {
-  grid-column: 3;
-  grid-row: 3;
+	grid-column: 3;
+	grid-row: 3;
 }
 
 #answer-box-3 {
-  grid-column: 3;
-  grid-row: 4;
+	grid-column: 3;
+	grid-row: 4;
 }
 
 #answer-box-4 {
-  grid-column: 3;
-  grid-row: 5;
+	grid-column: 3;
+	grid-row: 5;
 }
 
 .answer-box {
@@ -153,6 +160,7 @@ h2 {
 	border: 0.2rem solid black;
 	cursor: pointer;
 	width: 23vw;
+	font-size: 1.5rem;
 	position: relative;
 	text-align: center;
 	margin-bottom: 0.5em;
@@ -176,7 +184,7 @@ h2 {
 
 .answer {
 	transform: rotateX(180deg);
-	font-size: 1.75rem;
+	font-size: 3.06rem;
 	color: white;
 	-webkit-text-stroke: 0.1rem black;
 }

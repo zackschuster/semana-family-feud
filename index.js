@@ -5,9 +5,8 @@ function showDivById(id, animateClass = 'jackInTheBox', swingDelay = 1) {
 	div.hidden = false;
 	div.classList.add('animated', animateClass);
 
-	setTimeout(() => {
-		div.classList.add('infinite-swing');
-	}, seconds(swingDelay));
+  setTimeout(() => 
+    div.classList.add('infinite-swing'), seconds(swingDelay));
 }
 
 new Vue({
@@ -145,6 +144,7 @@ function initRoot() {
 				const header = document.getElementById('header');
 				header.classList.add('hinge');
 				header.style.height = '0px';
+				header.style.position = 'absolute';
 
 				setTimeout(() => {
 					header.remove();
@@ -210,7 +210,7 @@ function getQuestions() {
 			"question": "Best family vacation",
 			"answers": [
 				"Europe",
-				"Alaska/Canada",
+				"Alaska / Canada",
 				"Philippines",
 				"Pepper Mill"
 			]
@@ -237,7 +237,7 @@ function getQuestions() {
 		{
 			"question": "One word that describes Jared",
 			"answers": [
-				"Political/Politician/Politics",
+				"Political / Politician / Politics",
 				"Funny/Wacky/Silly",
 				"Smart",
 				"Talkative",
@@ -260,7 +260,7 @@ function getQuestions() {
 				"Food",
 				"Jokes",
 				"Cousins",
-				"Chika/Stories/Kwentuhan",
+				"Chika / Stories / Kwentuhan",
 				"Family"
 			]
 		},
