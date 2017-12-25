@@ -33,7 +33,7 @@
 
 			<script type="text/x-template" id="game-template">
 				<section id="game">
-					<h2>{{current.question}}</h2>
+					<h2>{{current.number}}. {{current.question}}</h2>
 					<div class="answers" id="answers">
 						<div class="answer-box" v-bind:id="'answer-box-' + index" v-for="(answer, index) in current.answers" @click="toggleAnswer(index)">
 							<div class="preview">
