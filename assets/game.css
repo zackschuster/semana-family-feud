@@ -104,6 +104,11 @@ h2 {
 	animation: swing 45s infinite;
 }
 
+.infinite-pulse {
+	transform-origin: top center;
+	animation: pulse 45s infinite;
+}
+
 .answers {
 	display: grid;
   grid-template-columns: repeat(5, 1fr);

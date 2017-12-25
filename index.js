@@ -42,7 +42,7 @@ function registerGameComponent() {
 			const confetti = generateConfetti();
 			confetti.start();
 
-			return { current, confetti };
+			return { current, confetti, showWrongNotification: false };
 		},
 		methods: {
 			toggleAnswer(index, allowConfetti = true) {
@@ -51,6 +51,8 @@ function registerGameComponent() {
 
 				if (answers.classList.contains(`show-answer-${index}`)) {
 					new Audio('assets/ding.mp3').play();
+				} else {
+					new Audio('assets/crank.mp3').play();
 				}
 
 				if (allowConfetti && [1,2,3,4,5].slice(0, this.current.answers.length - 1).every(x => answers.classList.contains(`show-answer-${x}`))) {
@@ -75,6 +77,13 @@ function registerGameComponent() {
 					preview.classList.toggle('no-height');
 				}, 100);
 			},
+			buzz() {
+				this.showWrongNotification = true;
+				new Audio('assets/buzz.mp3').play();
+				setTimeout(() => {
+					this.showWrongNotification = false;
+				}, seconds(1));
+			},
 			reset() {
 				const answers = document.getElementById(`answers`);
 				for (let i = 0; i < this.current.answers.length; i++) {
@@ -85,8 +94,8 @@ function registerGameComponent() {
 				new Audio('assets/crank.mp3').play();
 			},
 			stop() {
-				document.getElementById(`theme`).remove();
-				document.getElementById(`game`).remove();
+				document.getElementById('theme').remove();
+				document.getElementById('game').remove();
 				this.$destroy();
 			},
 			nextQuestion() {

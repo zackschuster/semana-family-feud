@@ -45,6 +45,12 @@
 						</div>
 					</div>
 
+					<button type="submit" class="game-btn" @click="buzz">
+						<h3 style="color:orangered;">
+							X
+						</h3>
+					</button>
+					|
 					<button type="submit" class="game-btn" @click="reset">
 						<h3 style="color:red;">
 							Reset
@@ -62,6 +68,12 @@
 							Next &raquo;
 						</h3>
 					</button>
+
+					<div v-show="showWrongNotification" class="infinite-pulse" style="position:absolute;top:0;right:0;bottom:0;left:0;">
+						<h3 style="color:orangered;font-size:42em;padding:0;margin:0;">
+							X
+						</h3>
+					</div>
 				</section>
 			</script>
 
