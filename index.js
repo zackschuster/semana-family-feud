@@ -11,8 +11,8 @@ function showDivById(id, animateClass = 'jackInTheBox', swingDelay = 1) {
 	div.hidden = false;
 	div.classList.add('animated', animateClass);
 
-  setTimeout(() =>
-    div.classList.add('infinite-swing'), seconds(swingDelay));
+	setTimeout(() =>
+		div.classList.add('infinite-swing'), seconds(swingDelay));
 }
 
 new Vue({
@@ -73,6 +73,8 @@ function registerGameComponent() {
 		},
 		methods: {
 			toggleAnswer(index, allowConfetti = true) {
+				if (index >= this.current.answers.length) return;
+
 				const answers = document.getElementById(`answers`);
 				answers.classList.toggle(`show-answer-${index}`);
 
@@ -82,7 +84,7 @@ function registerGameComponent() {
 					soundEffect('crank');
 				}
 
-				if (allowConfetti && [0,1,2,3,4].slice(0, this.current.answers.length).every(x => answers.classList.contains(`show-answer-${x}`))) {
+				if (allowConfetti && [0, 1, 2, 3, 4].slice(0, this.current.answers.length).every(x => answers.classList.contains(`show-answer-${x}`))) {
 					const confettiCanvas = document.getElementById('confetti');
 					confettiCanvas.hidden = false;
 					soundEffect('cheer');
