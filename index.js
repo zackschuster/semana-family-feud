@@ -46,13 +46,25 @@ function registerGameComponent() {
 		mounted() {
 			window.addEventListener('keydown', e => {
 				switch (e.code) {
-					case 'Digit1': return this.toggleAnswer(0);
-					case 'Digit2': return this.toggleAnswer(1);
-					case 'Digit3': return this.toggleAnswer(2);
-					case 'Digit4': return this.toggleAnswer(3);
-					case 'Digit5': return this.toggleAnswer(4);
-					case 'Enter': return this.nextQuestion();
-					case 'KeyX': return this.buzz();
+					case 'Numpad1':
+					case 'Digit1':
+						return this.toggleAnswer(0);
+					case 'Numpad2':
+					case 'Digit2':
+						return this.toggleAnswer(1);
+					case 'Numpad3':
+					case 'Digit3':
+						return this.toggleAnswer(2);
+					case 'Numpad4':
+					case 'Digit4':
+						return this.toggleAnswer(3);
+					case 'Numpad5':
+					case 'Digit5':
+						return this.toggleAnswer(4);
+					case 'Enter':
+						return this.nextQuestion();
+					case 'KeyX':
+						return this.buzz();
 				}
 			});
 		},
